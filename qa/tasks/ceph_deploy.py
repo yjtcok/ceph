@@ -704,8 +704,8 @@ def upgrade(ctx, config):
               osd.0
      """
     roles = config.get('roles')
-    if ctx.config.get('branch'):
-        branch = ctx.config.get('branch')
+    if config.get('branch'):
+        branch = config.get('branch')
         (var, val) = branch.items()[0]
         ceph_branch = '--{var}={val}'.format(var=var, val=val)
     else:
