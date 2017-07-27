@@ -35,7 +35,6 @@ tasks:
     branch:
       stable: jewel
     skip-mgr: True
-    filestore: True
 - ceph-deploy.upgrade:
     branch:
       stable: luminous
