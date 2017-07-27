@@ -715,7 +715,7 @@ def upgrade(ctx, config):
     (ceph_admin,) = ctx.cluster.only(
         teuthology.get_first_mon(ctx, config)).remotes.iterkeys()
     testdir = teuthology.get_testdir(ctx)
-    cmd = 'ceph-deploy install ' + ceph_branch
+    cmd = './ceph-deploy install ' + ceph_branch
     for role in roles:
         remotes_and_roles = ctx.cluster.only(role).remotes
         for remote, roles in remotes_and_roles.iteritems():
