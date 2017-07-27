@@ -28,6 +28,9 @@ roles:
   - osd.3
   - osd.4
   - osd.5
+- - osd.6
+  - osd.7
+  - osd.8
   - client.0
 tasks:
 - ssh-keys:
@@ -44,3 +47,4 @@ tasks:
       - mon.a
       - mon.b
       - mon.c
+      - osd.6
