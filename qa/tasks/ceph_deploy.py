@@ -740,10 +740,11 @@ def upgrade(ctx, config):
                     run.Raw(cmd),
                 ],
             )
+            ceph_admin.run(args=['sudo', 'ceph', '-s'])
     if config.get('setup-mgr-node', None):
         mgr_nodes = get_nodes_using_role(ctx, 'mgr')
         mgr_nodes = " ".join(mgr_nodes)
-        mgr_install = 'ceph-deploy install --mgr ' + " " + mgr_nodes
+        mgr_install = 'ceph-deploy install --mgr ' + ceph_branch + " " + mgr_nodes
         mgr_create = 'ceph-deploy mgr create' + " " + mgr_nodes
         # install mgr
         ceph_admin.run(
@@ -763,6 +764,7 @@ def upgrade(ctx, config):
                 run.Raw(mgr_create),
                 ],
             )
+        ceph_admin.run(args=['sudo', 'ceph', '-s'])
     if config.get('wait-for-healthy', None):
         wait_until_healthy(ctx, ceph_admin, use_sudo=True)
     yield
