@@ -744,8 +744,8 @@ def upgrade(ctx, config):
     if config.get('setup-mgr-node', None):
         mgr_nodes = get_nodes_using_role(ctx, 'mgr')
         mgr_nodes = " ".join(mgr_nodes)
-        mgr_install = 'ceph-deploy install --mgr ' + ceph_branch + " " + mgr_nodes
-        mgr_create = 'ceph-deploy mgr create' + " " + mgr_nodes
+        mgr_install = './ceph-deploy install --mgr ' + ceph_branch + " " + mgr_nodes
+        mgr_create = './ceph-deploy mgr create' + " " + mgr_nodes
         # install mgr
         ceph_admin.run(
             args=[
